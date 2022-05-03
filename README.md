@@ -1,24 +1,5 @@
-# vuejs-practise
+That's the SPA of a TODO LIST as a little test work.
 
-## Project setup
-```
-yarn install
-```
+Please, use yarn package manager.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Use "yarn" in the terminal to install the node modules. Then run the application with "yarn serve".
