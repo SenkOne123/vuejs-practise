@@ -17,17 +17,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      checked: false
-    }
-  },
-  methods: {
-    onChange () {
-      this.$emit('input', this.checked)
-    }
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+@Component({})
+export default class CheckBox extends Vue {
+  checked = false
+
+  onChange () {
+    console.log(this.checked)
+    this.$emit('input', this.checked)
   }
 }
 </script>
@@ -72,15 +71,15 @@ export default {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #000;
+    background-color: #fff;
   }
 
   .checkbox-form .item:hover input ~ .checkmark {
-    background-color: #000;
+    background-color: #fff;
   }
 
   .checkbox-form .item input:checked ~ .checkmark {
-    background-color: #000;
+    background-color: #fff;
   }
 
   .checkbox-form .checkmark:after {
@@ -98,7 +97,7 @@ export default {
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid rgb(54, 136, 223);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

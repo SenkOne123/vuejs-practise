@@ -44,7 +44,10 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "object-curly-spacing": ["error", "always"],
+      "quotes": ["error"]
+    }
   },
   "browserslist": [
     "> 1%",
