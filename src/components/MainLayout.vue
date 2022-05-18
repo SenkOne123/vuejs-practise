@@ -1,10 +1,6 @@
 <template>
   <div>
-    <!--<TodoListItem/>-->
-    <CheckBox
-      v-model="debug"
-    />
-    {{debug}}
+    <TodoListItem text="Almost before we knew it,"/>
   </div>
 </template>
 

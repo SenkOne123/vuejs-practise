@@ -7,6 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import MainLayout from './components/MainLayout.vue'
+import '@/assets/style/reset.css'
 
 @Component({
   components: {
