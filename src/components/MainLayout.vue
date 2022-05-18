@@ -1,42 +1,30 @@
 <template>
   <div>
-    <button @click='handleCreateTaskButtonClick()' class="create-task">Create task</button>
-    <div v-if='isCreateFieldNeeded' class="create-field-container">
-      <CreateTaskField />
-    </div>
-    <TodoItem />
+    <!--<TodoListItem/>-->
+    <CheckBox
+      v-model="debug"
+    />
+    {{debug}}
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import TodoItem from './TodoItem.vue'
-import CreateTaskField from './CreateTaskField.vue'
+import TodoList from '@/models/TodoList'
+import TodoListItem from '@/components/TodoListItem.vue'
+import CheckBox from '@/components/CheckBox.vue'
 
 @Component({
   components: {
-    TodoItem,
-    CreateTaskField
+    CheckBox,
+    TodoListItem
   }
 })
 export default class MainLayout extends Vue {
-  isCreateFieldNeeded = false;
-  handleCreateTaskButtonClick () : void {
-    this.isCreateFieldNeeded = !this.isCreateFieldNeeded
-  }
+  TodoItemList: TodoList[] = [];
+  debug = false;
 }
 </script>
 
 <style scoped>
-  .create-task {
-    font-family: "Montserrat", sans-serif;
-    border: 0;
-    width: 100px;
-    height: 30px;
-    color: #ffffff;
-    background: #000;
-  }
-  .create-field-container {
-    margin: 30px 0;
-  }
 </style>
