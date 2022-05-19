@@ -33,6 +33,8 @@ export default class TodoListItem extends Vue {
   .TodoListItem__container {
     padding: 40px;
     background: rgb(54, 136, 223);
+    margin-top: 20px;
+    min-width: calc(25% - 120px);
   }
   .TodoListItem__name {
     font-weight: 500;

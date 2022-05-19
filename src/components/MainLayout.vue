@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="main__buttons-section">
-      <div class="main__buttons">
-        <p>Create a new TODO</p>
-      </div>
+      <router-link class="router-remover" v-bind:to="routeToCreate">
+        <div class="main__buttons">
+          <p>Create a new TODO</p>
+        </div>
+      </router-link>
     </div>
     <div class="TodoLists__container">
       <TodoListItem v-for="todoList of TodoItemList" :key="todoList.id" :item="todoList"/>
@@ -16,6 +18,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import TodoList from '@/models/TodoList'
 import TodoListItem from '@/components/TodoListItem.vue'
 import CheckBox from '@/components/CheckBox.vue'
+import { PAGES } from '@/utils/guard'
 
 @Component({
   components: {
@@ -25,6 +28,7 @@ import CheckBox from '@/components/CheckBox.vue'
 })
 export default class MainLayout extends Vue {
   // Вопрос по хранению данных в local storage
+  routeToCreate = PAGES.CREATE_TODO
   TodoItemList: TodoList[] = [
     {
       id: 1,
@@ -72,8 +76,8 @@ export default class MainLayout extends Vue {
   .TodoLists__container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1%;
-    margin-top: 30px;
+    justify-content: space-evenly;
+    margin-top: 10px;
   }
 
   .main__buttons {
