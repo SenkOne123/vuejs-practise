@@ -9,6 +9,7 @@
             v-model="checked"
             type="checkbox"
             @change="onChange"
+            :disabled="disabled"
           >
           <span class="checkmark" />
         </label>
@@ -19,9 +20,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class CheckBox extends Vue {
+  @Prop(Boolean) disabled!: boolean
+
   checked = false
 
   onChange () {

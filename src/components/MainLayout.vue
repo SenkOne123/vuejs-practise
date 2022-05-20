@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div class="main__buttons-section">
-      <router-link class="router-remover" v-bind:to="routeToCreate">
-        <div class="main__buttons">
-          <p>Create a new TODO</p>
-        </div>
-      </router-link>
-    </div>
-    <div class="TodoLists__container">
-      <TodoListItem v-for="todoList of TodoItemList" :key="todoList.id" :item="todoList"/>
+    <div class="home__background">
+      <div class="main__buttons-section">
+        <router-link class="router-remover" v-bind:to="routeToCreate">
+          <div class="main__create-button">
+            <p>Create a new TODO</p>
+          </div>
+        </router-link>
+      </div>
+      <div class="TodoLists__container">
+        <TodoListItem v-for="todoList of TodoItemList" :key="todoList.id" :item="todoList"/>
+      </div>
     </div>
   </div>
 </template>
@@ -65,7 +67,7 @@ export default class MainLayout extends Vue {
   ]
 
   mounted () {
-    localStorage.TodoList = JSON.stringify(this.TodoItemList)
+    console.log('AAAAAA')
   }
 
   debug = false
@@ -73,19 +75,34 @@ export default class MainLayout extends Vue {
 </script>
 
 <style scoped>
+  .home__background {
+    background: darkorange;
+    width: 100vw;
+    height: 100vh;
+  }
   .TodoLists__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     margin-top: 10px;
+    padding: 0 5%;
+    gap: 3%;
   }
-
-  .main__buttons {
+  .main__create-button {
+    display: inline-block;
     cursor: pointer;
-    width: 100%;
+    width: auto;
     padding: 25px;
     font-size: 26px;
     font-weight: 600;
     background: darkorange;
+    transition: text-shadow 0.5s;
+  }
+  .main__create-button:hover {
+    text-shadow: 0 0 5px #fff;
+    transform: scale(1.1);
+  }
+  .main__buttons-section {
+    display: flex;
+    justify-content: center;
   }
 </style>

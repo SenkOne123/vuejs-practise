@@ -5,7 +5,7 @@
         {{ item.name }}
       </p>
       <div v-for="todoItem of item.todoItem" :key="todoItem.id" class="TodoListItem__todo-container">
-        <CheckBox class="TodoListItem__checkbox" />
+        <CheckBox disabled class="TodoListItem__checkbox" />
         <p class="TodoListItem__todo-description">
           {{ todoItem.content }}
         </p>
@@ -25,7 +25,7 @@ import TodoList from '@/models/TodoList'
   }
 })
 export default class TodoListItem extends Vue {
-  @Prop(Array) readonly item!: TodoList
+  @Prop(Object) readonly item!: TodoList
 }
 </script>
 
@@ -35,6 +35,13 @@ export default class TodoListItem extends Vue {
     background: rgb(54, 136, 223);
     margin-top: 20px;
     min-width: calc(25% - 120px);
+    transition: transform 1s;
+    opacity: 0.95;
+  }
+  .TodoListItem__container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    opacity: 1;
   }
   .TodoListItem__name {
     font-weight: 500;
